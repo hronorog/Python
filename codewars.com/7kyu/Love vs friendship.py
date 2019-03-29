@@ -1,0 +1,25 @@
+# If　a = 1, b = 2, c = 3 ... z = 26
+#
+# Then l + o + v + e = 54
+#
+# and f + r + i + e + n + d + s + h + i + p = 108
+#
+# So friendship is twice stronger than love :-)
+#
+# The input will always be in lowercase and never be empty.
+
+
+def words_to_marks(s):
+    summ = 0
+    for x in s:
+        for z, y in enumerate('abcdefghijklmnopqrstuvwxyz', 1):
+            if y == x:
+                summ += z
+    return summ
+
+
+# def words_to_marks(s):
+#   return sum(ord(c)-96 for c in s)
+#
+# def words_to_marks(s):
+#     return sum('_abcdefghijklmnopqrstuvwxyz'.index(e) for e in s)
