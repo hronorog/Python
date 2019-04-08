@@ -7,7 +7,6 @@ suffix_tran = '_txt_tran.txt'
 
 
 # стоп-слово для приостановки работы скрипта
-
 def stop():
     a = input('Press any key to continue or "s" to stop\n')
     if a == "s":
@@ -25,7 +24,6 @@ def parser(filename):
         if ".rpy:" in line:
             score_rpy += 1
             if "translate" in massiv[i + 1]:
-                #print(i, massiv[i], i + 3, massiv[i + 3])
                 with open(FILENAME.split('.')[0] + suffix_orig, 'a', encoding='utf-8') as f2:
                     f2.write(massiv[i + 3])
                 score_word += 1
@@ -43,7 +41,6 @@ def parser(filename):
 
 def parser_tran(filename):
     FILENAME = filename
-
     score_rpy = score_word = 0
 
     with open(FILENAME, "r", encoding='utf-8') as f:
@@ -53,7 +50,6 @@ def parser_tran(filename):
         if ".rpy:" in line:
             score_rpy += 1
             if "translate" in massiv[i + 1]:
-                #print(i, massiv[i], i + 3, massiv[i + 3])
                 with open(FILENAME.split('.')[0] + suffix_tran, 'a', encoding='utf-8') as f2:
                     f2.write(massiv[i + 4])
                 score_word += 1
@@ -170,7 +166,6 @@ def reverse(filename):
 
 
 # создание дерева папок и файлов
-
 def tree():
     for address, papka, files in os.walk(os.getcwd()):
         print("Адрес: {}".format(address))
@@ -191,7 +186,6 @@ def tree():
 
 
 # выдирание строк из всех файлов в каталоге
-
 def tree2():
     for address, papka, files in os.walk(os.getcwd()):
         if files:
@@ -203,7 +197,6 @@ def tree2():
 
 
 # выдирание строк перевода из всех файлов в каталоге
-
 def tree2_tran():
     for address, papka, files in os.walk(os.getcwd()):
         if files:
@@ -215,7 +208,6 @@ def tree2_tran():
 
 
 # вставить правильный перевод во все файлы в каталоге
-
 def tree2_reverse():
     for address, papka, files in os.walk(os.getcwd()):
         if files:
@@ -227,7 +219,6 @@ def tree2_reverse():
 
 
 # основное меню
-
 def folders():
     os.system('cls')
     print('Содержимое текущей папки:\n')
@@ -238,7 +229,7 @@ def folders():
     choose()
 
 
-# меню
+# основное меню
 def choose():
     b = input('\nВыберите пункт меню:'
               '\n1. Выдернуть из всех файлов в текущей папке дорожку оригинала'
