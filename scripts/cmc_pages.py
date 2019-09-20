@@ -11,6 +11,7 @@ def get_html(url):
     print(r.status_code)
 
 
+# записываем результат в csv-файл
 def write_scv(data):
     with open('cmc.csv', 'a') as f:
         writer = csv.writer(f)
@@ -47,12 +48,12 @@ def get_page_data(html):
 
 def main():
     url = 'https://coinmarketcap.com/'
-
+    # листаем страницы
     while True:
         get_page_data(get_html(url))
 
         soup = BeautifulSoup(get_html(url), 'lxml')
-
+        # ищем кнопку Next
         try:
             pattern = 'Next'
             url = 'https://coinmarketcap.com/' + soup.find('ul', class_='pagination')\
